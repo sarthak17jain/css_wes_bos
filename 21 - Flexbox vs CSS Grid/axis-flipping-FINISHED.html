@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>Flexbox vs CSS Grid: Axis Flipping!</title>
+</head>
+
+<body>
+
+  <!-- Flipping the direction of columns -->
+<!-- with flexbox we can easily flip the axis using flex-direction -->
+<!-- refer below for how to do it with grid -->
+<!-- the thing that we CANNOT in grid is row-reverse and column-reverse like we do in flexbox. 
+     we can use order property but that would be too tedious.-->
+  <script>
+    function flip(e) {
+      const flipper = document.querySelector('.flipper');
+      flipper.classList.toggle('flip');
+    }
+  </script>
+  <button onClick="flip()">Flip It</button>
+  <div class="flipper">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+
+  </div>
+
+  <style>
+    .flipper {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    }
+
+    .flipper.flip {
+      grid-template-columns: 1fr;
+    }
+    /* can also easily flip to 2 columns */
+    /* .flipper.flip {
+      grid-template-columns: 1fr 1fr;
+    } */
+  </style>
+</body>
+
+</html>

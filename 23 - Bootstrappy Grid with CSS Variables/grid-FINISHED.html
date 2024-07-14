@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bootstrappy Grid with CSS Variables!</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+
+  <div class="grid" style="--cols: 10;">
+    <div class="item">1</div>
+    <!-- Inline style has higher priority over internal css -->
+    <!-- The below line uses the --span variable defined in the style section and multiplies it with 7 -->
+    <div class="item" style="--span: 7;">
+
+      <div class="grid" style="--cols: 2;">
+        <div class="item">1</div>
+        <div class="item">2</div>
+      </div>
+
+    </div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+
+  <style>
+    .grid {
+      display: grid;
+      grid-gap: 20px;
+      /* uses the variable --cols defined in the div in body tag. if class is not specified then it fall backs to 12 */
+      grid-template-columns: repeat(var(--cols, 12), minmax(0, 1fr));
+    }
+
+    .item {
+      /* Use min-width: 0 or use width:100% with grid-template-columns: minmax(0, ..) */
+      /* min-width: 0; */
+      width: 100%;
+      --span: 1;
+      grid-column: span var(--span);
+    }
+  </style>
+
+
+</body>
+
+</html>

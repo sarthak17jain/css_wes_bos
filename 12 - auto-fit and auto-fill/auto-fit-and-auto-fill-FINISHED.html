@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>auto-fit and auto-fill!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item item1">Item 01</div>
+    <div class="item item2">Item 02</div>
+    <div class="item item3">Item 03</div>
+    <div class="item item4">Item 04</div>
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      grid-gap: 20px;
+      border: 10px solid var(--yellow);
+      /* makes as many columns as possible by fitting complete item widths in the container width. The leftover space is simply ignored */
+      grid-template-columns: repeat(auto-fill, 150px);
+      /* makes only as many columns as the number of items. the columns overlap on top of each other */
+      /* grid-template-columns: repeat(auto-fit, 150px); */
+    }
+
+    .item4 {
+      /* in auto-fill this item is placed at the last column. the other columns are left blank */
+      /* in auto-fit this item is exactly where it is since columns overlap on each other */
+      grid-column-end: -1;
+    }
+  </style>
+</body>
+
+</html>

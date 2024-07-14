@@ -1,0 +1,11 @@
+Pros of flexbox:
+-> better browser support than grid
+-> can be animated as flex-grow whereas, the only thing that can be animated in grid is gap.
+-> the disadvantage of grid is that the columns are rigid. therefore the same column width applies to every row.
+   this is not the case with flexbox. refer stacked-layout-FINISHED.html
+
+Pros of grid:
+-> we dont have justify items and justify-self, whereas this is present in grid. 
+   we cannot do things like stick 4 items, one to each corner of the container in flexbox.
+-> its much more consistent across all the browsers and there's not as many bugs as flexbox has.
+-> easier to transition from single axis to 2 dimensions

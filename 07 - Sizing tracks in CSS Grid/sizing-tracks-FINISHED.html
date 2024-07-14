@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/style.css">
+  <title>Sizing Tracks in CSS Grid!</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">Wes Bos Is Cool</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+  </div>
+
+  <style>
+    .container {
+      display: grid;
+      height: 600px;
+      border: 10px solid var(--yellow);
+      /* PROBLEM WITH PERCENTAGES:
+      grid-template-columns: 25% 25% 25% 25%;
+      grid-gap: 20px;  
+      this causes an horizontal scroll since 25*4=100, +20px*3=60px. Therefore, 60px overflow          
+      */
+      /* the soltuion is to use fr (fraction) unit */
+      /* fr uses up the remaining(leftover) space (after explicit elements are done) */
+      /* grid-template-columns: 200px 100px 1fr; */
+      /* width(2nd column) = 2 * width(3rd column) */
+      grid-template-columns: 200px 2fr 1fr;
+      /* The below line does nothing */
+      /* since 1fr means the default height of the element */
+      /* grid-template-columns: 1fr 1fr 1fr; */
+      /* auto, automatically takes up the required width for the element */
+      grid-template-columns: auto 1fr auto 1fr;
+      grid-gap: 20px;
+    }
+  </style>
+</body>
+
+</html>
